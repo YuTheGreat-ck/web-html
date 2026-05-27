@@ -2,8 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import { Button } from "antd";
 import Link from "next/link";
-
-import { AiOutlineAlignRight } from "react-icons/ai";
+import { AiOutlineAlignRight, AiOutlineClose } from "react-icons/ai";
 
 import { toggleValue, selectToggleValue } from "@/utils/toggleSlice";
 import { MenuItems } from "@/common/types/menu";
@@ -15,72 +14,51 @@ interface MenuItemProps {
 export default function MenuItem({ items }: MenuItemProps) {
   const dispatch = useDispatch();
   const toggleState = useSelector(selectToggleValue);
-  const handleToggle = () => {
-    dispatch(toggleValue());
-  };
+  const handleToggle = () => dispatch(toggleValue());
 
   return (
-    <div className="w-full flex flex-col lg:flex-row gap-y-6 lg:gap-x-8 2xl:gap-x-16 lg:items-center">
-      <div className="flex justify-between items-center">
-        <Link href="#home" aria-label="home">
+    <div className="w-full flex flex-col lg:flex-row lg:items-center lg:justify-between">
+      {/* 顶部 Logo 与 汉堡菜单按钮 */}
+      <div className="flex justify-between items-center w-full lg:w-auto">
+        <Link href="/" aria-label="返回首页">
           <Image
             src="/logo.png"
-            alt="logo"
-            width="0"
-            height="0"
-            sizes="100vw"
+            alt="UIXSHUVO Logo"
+            width={120}
+            height={40}
             className="w-[120px] h-auto"
+            priority
           />
         </Link>
         <button
-          type="button"
           onClick={handleToggle}
-          aria-label="btn-navbar"
-          className="block lg:hidden"
+          className="lg:hidden p-2 text-2xl"
+          aria-label="切换菜单"
         >
-          <AiOutlineAlignRight />
+          {toggleState ? <AiOutlineClose /> : <AiOutlineAlignRight />}
         </button>
       </div>
-      {toggleState && (
-        <>
-          <div className="flex lg:hidden flex-col gap-y-6 tracking-wide ml-2">
-            {items.map((item) => (
-              <Link
-                key={item.title}
-                href={item.href}
-                className="text-sm lg:text-lg capitalize font-medium text-neutral-600"
-              >
-                {item.title}
-              </Link>
-            ))}
-          </div>
-          <div className="lg:hidden flex flex-col gap-y-4">
-            <Button
-              type="text"
-              aria-label="login"
-              className="h-auto font-medium tracking-wide"
-            >
-              <p className="text-lg">Log in</p>
-            </Button>
-            <Button
-              aria-label="create-account"
-              className="h-auto py-2 px-8 rounded-2xl bg-black text-white"
-            >
-              <p className="text-lg">Create Account</p>
-            </Button>
-          </div>
-        </>
-      )}
+
+      {/* 桌面端导航 (始终显示) */}
       <div className="hidden lg:flex gap-x-12 tracking-wide">
         {items.map((item) => (
-          <Link
-            key={item.title}
-            href={item.href}
-            className="capitalize font-medium text-neutral-600"
-          >
+          <Link key={item.title} href={item.href} className="font-medium text-neutral-700 hover:text-blue-600 transition-colors">
             {item.title}
           </Link>
         ))}
+      </div>
+
+      {/* 移动端菜单 (仅在 toggleState 为 true 时显示) */}
+      <div className={`lg:hidden ${toggleState ? 'flex' : 'hidden'} flex-col gap-y-6 pt-6 pb-4 border-t mt-4`}>
+        {items.map((item) => (
+          <Link key={item.title} href={item.href} onClick={handleToggle} className="font-medium text-neutral-700">
+            {item.title}
+          </Link>
+        ))}
+        <div className="flex flex-col gap-y-3 pt-2">
+          <Button type="text" className="text-lg">登录</Button>
+          <Button className="bg-black text-white rounded-xl py-5">获取报价</Button>
+        </div>
       </div>
     </div>
   );
