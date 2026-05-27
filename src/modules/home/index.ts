@@ -1,22 +1,33 @@
-import React, { lazy } from "react";
+"use client";
 
-// 引入我们刚才修改过的各个工业主题模块
-const Headline = lazy(() => import("./Headline"));
-const Products = lazy(() => import("./Rent"));      // 如果你重命名了 Rent.tsx 为 Products.tsx
-const Solutions = lazy(() => import("./Customers")); // 如果你重命名了 Customers.tsx 为 Solutions.tsx
-const About = lazy(() => import("./About"));
-const VideoPlayer = lazy(() => import("./VideoPlayer"));
-const Contact = lazy(() => import("./Contact"));
+import React, { lazy, Suspense } from "react";
+
+// 懒加载组件
+const Headline = lazy(() => import("@/components/sections/Headline"));
+const Products = lazy(() => import("@/components/sections/ProductGrid"));
+const Solutions = lazy(() => import("@/components/sections/Customers"));
+const About = lazy(() => import("@/components/sections/About"));
+const VideoPlayer = lazy(() => import("@/components/sections/VideoPlayer"));
+const Contact = lazy(() => import("@/components/sections/Contact"));
+
+// 简单的加载占位符，避免内容跳动
+const SectionLoader = () => (
+  <div className="w-full py-20 flex justify-center text-neutral-400">
+    加载中...
+  </div>
+);
 
 export default function Home() {
   return (
     <main className="flex flex-col w-full">
-      <Headline />
-      <Products />
-      <Solutions />
-      <About />
-      <VideoPlayer />
-      <Contact />
+      <Suspense fallback={<SectionLoader />}>
+        <Headline />
+        <Products />
+        <Solutions />
+        <About />
+        <VideoPlayer />
+        <Contact />
+      </Suspense>
     </main>
   );
 }
