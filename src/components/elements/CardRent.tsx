@@ -1,21 +1,20 @@
 import Image from "next/image";
 import { Card } from "antd";
-
-import {
-  MdOutlineBathtub,
-  MdOutlineLocationOn,
-  MdOutlineDirectionsCar,
+import { 
+  MdOutlineLayers, 
+  MdOutlineInventory2, 
+  MdOutlineStraighten 
 } from "react-icons/md";
-import { LuBedDouble } from "react-icons/lu";
+import { PiDropFill } from "react-icons/pi";
 
 import { formatCurrency } from "@/utils/formatter";
-import { Rent } from "@/common/types/response";
+import { Product } from "@/common/types/response"; // 假设你已更新接口
 
-interface CardRentProps {
-  data: Rent;
+interface CardProductProps {
+  data: Product;
 }
 
-export default function CardRent({ data }: CardRentProps) {
+export default function CardProduct({ data }: CardProductProps) {
   return (
     <Card
       cover={
@@ -23,39 +22,37 @@ export default function CardRent({ data }: CardRentProps) {
           alt={data.title}
           src={data.image}
           priority
-          width="0"
-          height="0"
-          sizes="100vw"
-          className="w-full h-[350px] xl:h-[450px] object-cover"
+          width={600}
+          height={400}
+          className="w-full h-[250px] xl:h-[300px] object-cover"
         />
       }
-      className="rounded-2xl overflow-hidden bg-white drop-shadow-sm cursor-pointer hover:scale-[1.01] transition-all duration-300"
+      className="rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-lg transition-all duration-300"
     >
-      <div className="px-0 lg:px-4 py-0 lg:py-4">
-        <h1 className="capitalize font-medium text-2xl lg:text-3xl text-[#4B73FF] mb-2">
-          {formatCurrency(data.price)}
-        </h1>
-        <h1 className="capitalize font font-medium text-base lg:text-lg">
+      <div className="px-1 py-2">
+        <h2 className="text-[#4B73FF] font-bold text-xl lg:text-2xl mb-1">
+          {typeof data.price === 'number' ? formatCurrency(data.price) : data.price}
+        </h2>
+        <h3 className="font-semibold text-lg lg:text-xl text-gray-800 mb-4">
           {data.title}
-        </h1>
-      </div>
-      <div className="border mx-0 lg:mx-4 my-4" />
-      <div className="px-0 lg:px-4 pb-0 lg:pb-8 text-[12px] md:text-[14px] lg:text-base">
-        <p className="capitalize flex items-center gap-x-2 mb-4">
-          <MdOutlineLocationOn /> {data.location}
-        </p>
-        <p className="flex justify-between capitalize">
-          <span className="flex items-center gap-x-2">
-            <LuBedDouble /> {data.rooms.bed} Bed
-          </span>
-          <span className="flex items-center gap-x-2">
-            <MdOutlineBathtub /> {data.rooms.bath} Bath
-          </span>
-          <span className="flex items-center gap-x-2">
-            <MdOutlineDirectionsCar />
-            {data.rooms.parking} Parking
-          </span>
-        </p>
+        </h3>
+
+        <div className="border-t pt-4 text-[13px] text-gray-600">
+          <div className="grid grid-cols-2 gap-y-3">
+            <span className="flex items-center gap-x-2">
+              <PiDropFill className="text-blue-500" /> {data.specs.absorption}
+            </span>
+            <span className="flex items-center gap-x-2">
+              <MdOutlineLayers className="text-blue-500" /> {data.specs.material}
+            </span>
+            <span className="flex items-center gap-x-2">
+              <MdOutlineStraighten className="text-blue-500" /> {data.specs.dimension}
+            </span>
+            <span className="flex items-center gap-x-2">
+              <MdOutlineInventory2 className="text-blue-500" /> {data.location}
+            </span>
+          </div>
+        </div>
       </div>
     </Card>
   );
