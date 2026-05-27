@@ -5,7 +5,6 @@ import React from "react";
 
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-
 import { store } from "@/utils/store";
 
 interface LayoutsProps {
@@ -14,10 +13,11 @@ interface LayoutsProps {
 
 export default function Layout({ children }: LayoutsProps) {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col min-h-screen">
       <Provider store={store}>
         <Navbar />
-        <main className="w-full flex-1 scroll-smooth transition-all duration-300">
+        {/* main 使用 flex-grow 确保内容较少时 Footer 依然在底部 */}
+        <main className="w-full flex-grow scroll-smooth">
           {children}
         </main>
         <Footer />
