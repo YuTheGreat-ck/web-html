@@ -4,33 +4,38 @@ import Link from "next/link";
 
 export default function Tagline() {
   return (
-    <div className="flex flex-col gap-y-6 lg:gap-y-0 lg:justify-between">
-      <Link href="#home" aria-label="home">
+    <div className="flex flex-col gap-y-6">
+      {/* 品牌 Logo */}
+      <Link href="/" aria-label="返回首页">
         <Image
           src="/logo-2.png"
-          alt="logo"
-          width="0"
-          height="0"
-          sizes="100vw"
+          alt="UIXSHUVO Logo"
+          width={180}
+          height={60}
           className="w-[180px] h-auto"
+          priority
         />
       </Link>
-      <h1 className="text-base xl:text-lg">
-        Investing In Your Future One <br />
-        Home At A Time
-      </h1>
-      <div className="border rounded-xl overflow-hidden flex items-center justify-between p-1">
+
+      {/* 品牌口号：针对工业吸油产品进行调整 */}
+      <h2 className="text-base xl:text-lg text-neutral-300 leading-relaxed">
+        UIXSHUVO 工业环保专家 <br /> 
+        守护每一次生产安全与环境承诺
+      </h2>
+
+      {/* 订阅区块：优化了输入框的交互性 */}
+      <div className="border border-neutral-700 rounded-xl overflow-hidden flex items-center justify-between p-1 bg-neutral-800">
         <Input
-          placeholder="Enter your email"
+          placeholder="请输入您的企业邮箱"
           variant="borderless"
-          className="w-auto placeholder:text-white focus:text-white"
+          className="w-full text-white placeholder:text-neutral-500"
         />
         <Button
           type="primary"
-          aria-label="Subscribe"
-          className="h-auto rounded-lg font-medium py-2 px-4 xl:py-4 xl:px-6 bg-[#4B73FF]"
+          aria-label="订阅动态"
+          className="h-auto rounded-lg font-medium py-2 px-4 bg-[#4B73FF] hover:bg-[#3b60e0] border-none"
         >
-          Subscribe
+          订阅
         </Button>
       </div>
     </div>
