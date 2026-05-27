@@ -2,43 +2,46 @@ import { Button } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-
 import { FaPlay } from "react-icons/fa";
 
-interface VideoPlayerProps {}
-
-export default function VideoPlayer({}: VideoPlayerProps) {
+export default function VideoPlayer() {
   return (
-    <section className="w-full h-auto">
-      <div className="w-full h-[80px] lg:h-[180px] xl:h-[260px] 2xl:h-[360px] bg-[#0D0C1E] relative ">
-        <div className="w-[320px] md:w-[420px] lg:w-[620px] xl:w-[820px] 2xl:w-[1010px] absolute rounded-2xl overflow-hidden top-0 md:-top-12 lg:top-0 right-1/2 translate-x-1/2 ">
-          {/* 将src修改为你实际的工业场景演示图路径 */}
+    <section className="w-full relative py-12">
+      {/* 背景层：通过拆分深色与浅色背景实现层次感 */}
+      <div className="absolute top-0 w-full h-1/2 bg-[#0D0C1E]" />
+      <div className="absolute bottom-0 w-full h-1/2 bg-[#F4F7FC]" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl relative group">
+          {/* 视频封面图 */}
           <Image
             src="/images/factory-demo.jpg" 
-            alt="工业吸油绵应用演示"
-            priority
-            width="0"
-            height="0"
-            sizes="100vw"
-            className="w-full h-auto relative"
+            alt="工业吸油绵应用演示视频"
+            width={1200}
+            height={675}
+            className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
           />
-          {/* 替换为你真实的视频地址 */}
+          
+          {/* 遮罩层：增加朦胧感让按钮更显眼 */}
+          <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
+          
+          {/* 播放按钮：居中处理 */}
           <Link
-            href="https://www.youtube.com/watch?v=你的视频ID" 
-            aria-label="link-video"
+            href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" 
             target="_blank"
-            className="absolute top-1/2 right-1/2 translate-x-10 -translate-y-10 lg:translate-x-16 tra lg:-translate-y-14"
+            rel="noopener noreferrer"
+            className="absolute inset-0 flex items-center justify-center"
           >
             <Button
-              aria-label="play-video"
-              className="h-auto bg-white rounded-full p-6 lg:p-10 border-none hover:scale-105 transition-transform"
+              shape="circle"
+              size="large"
+              className="w-20 h-20 lg:w-28 lg:h-28 flex items-center justify-center bg-white/90 hover:bg-white border-none shadow-xl hover:scale-110 transition-all"
             >
-              <FaPlay color="#1d4ed8" size={25} />
+              <FaPlay className="text-blue-600 ml-1" size={30} />
             </Button>
           </Link>
         </div>
       </div>
-      <div className="w-full h-[80px] md:h-[120px] lg:h-[180px] xl:h-[260px] 2xl:h-[360px] bg-[#F4F7FC]" />
     </section>
   );
 }
