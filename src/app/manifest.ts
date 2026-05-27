@@ -2,14 +2,13 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Abdur Rozaq Fakhruddin",
-    short_name: "Abdur Rozaq F",
-    description:
-      "Website Real Estate, landing page, residential, commercial, industrial, raw land, and special use",
+    name: "UIXSHUVO Industrial",
+    short_name: "UIXSHUVO",
+    description: "高性能工业吸油绵，全球工业环保泄漏应急处理专家",
     start_url: "/",
     display: "standalone",
-    background_color: "#fff",
-    theme_color: "#fff",
+    background_color: "#ffffff",
+    theme_color: "#000000",
     icons: [
       {
         src: "/favicon.ico",
