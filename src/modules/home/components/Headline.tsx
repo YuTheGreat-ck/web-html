@@ -1,50 +1,52 @@
 import { Button } from "antd";
 
-interface HeadlineProps {}
-
-export default function Headline({}: HeadlineProps) {
+export default function Headline() {
   return (
-    <section
-      id="home"
-      className="w-full h-auto bg-[#F4F7FC] px-4 lg:px-20 pt-8 pb-20"
-    >
-      <div className="h-[720px] rounded-2xl flex flex-col gap-y-4 md:gap-y-8 items-center relative image-headline">
-        <h1 className="font-semibold text-2xl md:text-4xl lg:text-5xl xl:text-6xl flex flex-col items-center text-center mt-28">
-          工业泄漏，瞬时解决 <br /> 专业吸油绵，企业环保首选
+    <section id="home" className="w-full bg-[#F4F7FC] px-6 pt-8 pb-24">
+      {/* 容器：使用了 flex-col 实现中心化对齐 */}
+      <div className="relative rounded-3xl flex flex-col items-center text-center py-20 bg-white/50 border border-white shadow-sm overflow-hidden">
+        
+        {/* 主标题：使用 h1 确立页面权重 */}
+        <h1 className="font-bold text-3xl md:text-5xl lg:text-6xl text-neutral-900 mb-6 px-4">
+          工业泄漏，瞬时解决 <br />
+          <span className="text-blue-600">专业吸油绵，企业环保首选</span>
         </h1>
-        <p className="text-center text-sm md:text-lg w-[260px] md:w-[460px] lg:w-[600px]">
+
+        {/* 副标题 */}
+        <p className="text-neutral-600 text-base md:text-lg max-w-2xl mb-10 px-6 leading-relaxed">
           高性能工业吸油材料，超强吸附能力，拒绝二次污染。
           助力工厂车间实现快速清理，提升作业安全性，符合环保合规要求。
         </p>
+
+        {/* 核心动作按钮 */}
         <Button
-          aria-label="Get-Started"
-          className="h-auto px-8 py-3 border border-black rounded-lg font-bold mt-10 hover:bg-black hover:text-white transition-all"
+          size="large"
+          className="h-auto px-10 py-4 border-2 border-black rounded-xl font-bold text-lg hover:bg-black hover:text-white transition-all"
         >
-          <p className="text-base lg:text-lg">申请免费试样</p>
+          申请免费试样
         </Button>
-        
-        {/* 底部功能栏，展示吸油绵的核心卖点 */}
-        <div className="hidden lg:block absolute w-full -bottom-10 px-14 2xl:px-28">
-          <div className="flex justify-between bg-white rounded-xl px-12 py-6 shadow-lg">
-            <div className="flex flex-col items-center">
-              <h1 className="font-semibold text-lg">20倍吸附量</h1>
-              <p className="font-light text-sm">高效处理溢出油污</p>
-            </div>
-            <div className="border-r border-gray-300" />
-            <div className="flex flex-col items-center">
-              <h1 className="font-semibold text-lg">环保材质</h1>
-              <p className="font-light text-sm">方便回收与处置</p>
-            </div>
-            <div className="border-r border-gray-300" />
-            <div className="flex flex-col items-center">
-              <h1 className="font-semibold text-lg">快速清理</h1>
-              <p className="font-light text-sm">大幅提升车间效率</p>
-            </div>
+
+        {/* 底部核心指标卡片：适配桌面端布局 */}
+        <div className="hidden lg:flex absolute -bottom-16 w-full max-w-5xl px-10">
+          <div className="flex items-center justify-between w-full bg-white rounded-2xl p-8 shadow-xl border border-neutral-100">
+            {[
+              { title: "20倍吸附量", desc: "高效处理溢出油污" },
+              { title: "环保材质", desc: "方便回收与处置" },
+              { title: "快速清理", desc: "大幅提升车间效率" },
+            ].map((item, idx) => (
+              <div key={idx} className="flex items-center gap-6">
+                <div className="flex flex-col">
+                  <span className="font-bold text-xl text-neutral-900">{item.title}</span>
+                  <span className="text-neutral-500 text-sm">{item.desc}</span>
+                </div>
+                {idx < 2 && <div className="h-10 w-px bg-neutral-200" />}
+              </div>
+            ))}
             
             <Button
               type="primary"
-              aria-label="Contact-Us"
-              className="h-auto bg-[#4C73FF] rounded-xl px-10 py-3 text-white font-medium text-base hover:bg-blue-600"
+              size="large"
+              className="bg-blue-600 rounded-xl px-10 py-6 text-white font-medium text-base hover:bg-blue-700 ml-4"
             >
               联系销售报价
             </Button>
