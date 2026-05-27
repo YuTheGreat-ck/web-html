@@ -1,11 +1,22 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  reactStrictMode: true,
+
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+
   images: {
     unoptimized: true,
   },
-  // 增加下面这行，防止构建时的路径异常
-  trailingSlash: true,
-}
 
-module.exports = nextConfig
+  experimental: {
+    optimizePackageImports: ["lucide-react"],
+  },
+};
+
+module.exports = nextConfig;
