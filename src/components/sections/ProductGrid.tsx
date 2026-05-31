@@ -1,14 +1,59 @@
+import Image from "next/image";
+
+const products = [
+  {
+    title: "工业吸油绵",
+    image: "/images/image-5.jpg",
+  },
+  {
+    title: "吸油棉片",
+    image: "/images/image-6.jpg",
+  },
+  {
+    title: "围油栏",
+    image: "/images/image-7.jpg",
+  },
+  {
+    title: "吸油条",
+    image: "/images/image-8.jpg",
+  },
+  {
+    title: "工业吸附材料",
+    image: "/images/image-9.jpg",
+  },
+];
+
 export default function ProductGrid() {
   return (
-    <section className="py-16 px-4">
-      <h2 className="text-3xl font-bold text-center mb-10">产品规格</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {['高吸附棉片', '吸油围油栏', '工业吸油条'].map((item) => (
-          <div key={item} className="p-6 border border-gray-200 rounded-lg hover:shadow-lg transition">
-            <h3 className="text-xl font-semibold text-industrial-blue">{item}</h3>
-            <p className="mt-2 text-gray-500">专为严苛工业环境设计，吸附量大，处理快速。</p>
-          </div>
-        ))}
+    <section className="py-16 px-4 bg-white">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-4xl font-bold text-center mb-12">
+          产品展示
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {products.map((item) => (
+            <div
+              key={item.title}
+              className="overflow-hidden rounded-xl border border-gray-200 shadow-sm hover:shadow-lg transition"
+            >
+              <div className="relative h-72">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              <div className="p-5">
+                <h3 className="text-xl font-semibold">
+                  {item.title}
+                </h3>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
