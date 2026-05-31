@@ -1,14 +1,14 @@
 export const MENU_ABOUT = [
   {
-    count: "11K+",
-    decs: "Happy Customers with our services",
+    count: "5000+",
+    decs: "累计服务工业企业用户",
   },
   {
-    count: "22K+",
-    decs: "The best property we provide",
+    count: "100K+",
+    decs: "吨级泄漏事故应急响应",
   },
   {
-    count: "520+",
-    decs: "Awesome companies believe in us",
+    count: "98%",
+    decs: "客户满意度与重复采购率",
   },
 ];

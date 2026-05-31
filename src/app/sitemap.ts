@@ -1,13 +1,15 @@
 import { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const domain =
-    process.env.DOMAIN || "https://realestate-landingpage.vercel.app/";
+  const domain = "https://example.com";
+
   return [
     {
       url: domain,
       lastModified: new Date(),
-      changeFrequency: "yearly",
+      changeFrequency: "weekly",
       priority: 1,
     },
   ];

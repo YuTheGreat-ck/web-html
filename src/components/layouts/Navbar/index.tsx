@@ -1,6 +1,6 @@
 import React from "react";
-import MenuItem from "@/components/header/MenuItem";
-import Auth from "@/components/header/Auth";
+import MenuItem from "./MenuItem";
+import Auth from "./Auth";
 import { MENU_ITEMS } from "@/common/constant/menu";
 
 export default function Navbar() {
