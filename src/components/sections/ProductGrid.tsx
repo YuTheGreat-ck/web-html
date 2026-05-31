@@ -6,19 +6,19 @@ const products = [
     image: "/images/default-profile-2.jpg",
   },
   {
-    title: "工业吸油绵",
+    title: "环保吸油绵",
     image: "/images/image-5.jpg",
   },
   {
-    title: "吸油条",
+    title: "工业吸油条",
     image: "/images/image-6.jpg",
   },
   {
-    title: "围油栏",
+    title: "工业围油栏",
     image: "/images/default-profile-1.jpg",
   },
   {
-    title: "吸油绵片",
+    title: "工业吸油绵",
     image: "/images/image-8.jpg",
   },
   {
