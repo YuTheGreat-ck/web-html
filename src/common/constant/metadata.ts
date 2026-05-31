@@ -1,12 +1,12 @@
 // src/common/constant/metadata.ts
 export const METADATA = {
-  title: "UIXSHUVO | 高性能工业吸油绵专家",
+  title: "山东胜德源环保 | 高性能环保工业吸油绵专家",
   authors: {
     name: "UIXSHUVO Team",
     url: process.env.DOMAIN || "https://example.com", 
   },
-  creator: "UIXSHUVO",
-  description: "UIXSHUVO提供高性能工业吸油绵，专注于工业泄漏应急处理。我们的产品具有卓越的吸附能力，助力工厂车间实现安全环保管理，符合国际安全合规标准。",
+  creator: "山东胜德源环保",
+  description: "山东胜德源环保提供高性能工业吸油绵，专注于工业泄漏应急处理。我们的产品具有卓越的吸附能力，助力工厂车间实现安全环保管理，符合国际安全合规标准。",
   keywords: [
     "工业吸油绵",
     "泄漏应急处理",
@@ -19,8 +19,8 @@ export const METADATA = {
   openGraph: {
     type: "website",
     locale: "zh_CN", 
-    title: "UIXSHUVO | 工业环保泄漏解决方案",
-    siteName: "UIXSHUVO",
+    title: "山东胜德源环保 | 工业环保泄漏解决方案",
+    siteName: "山东胜德源环保",
     url: process.env.DOMAIN || "https://example.com",
     description: "高性能工业吸油绵，企业环保首选。让工厂车间无惧泄漏，提升作业安全效率。",
     images: {
