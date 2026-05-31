@@ -7,8 +7,6 @@ const Headline = lazy(() => import("@/components/sections/Headline"));
 const Products = lazy(() => import("@/components/sections/ProductGrid"));
 const Solutions = lazy(() => import("@/components/sections/Customers"));
 const About = lazy(() => import("@/components/sections/About"));
-const VideoPlayer = lazy(() => import("@/components/sections/VideoPlayer"));
-const Contact = lazy(() => import("@/components/sections/Contact"));
 
 // 简单的加载占位符，避免内容跳动
 const SectionLoader = () => (
@@ -25,8 +23,6 @@ export default function Home() {
         <Products />
         <Solutions />
         <About />
-        <VideoPlayer />
-        <Contact />
       </Suspense>
     </main>
   );

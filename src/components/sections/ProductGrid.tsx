@@ -2,19 +2,23 @@ import Image from "next/image";
 
 const products = [
   {
+    title: "车辆工程",
+    image: "/images/default-profile-2.jpg",
+  },
+  {
     title: "工业吸油绵",
     image: "/images/image-5.jpg",
   },
   {
-    title: "吸油棉片",
+    title: "吸油条",
     image: "/images/image-6.jpg",
   },
   {
     title: "围油栏",
-    image: "/images/image-7.jpg",
+    image: "/images/default-profile-1.jpg",
   },
   {
-    title: "吸油条",
+    title: "吸油绵片",
     image: "/images/image-8.jpg",
   },
   {
