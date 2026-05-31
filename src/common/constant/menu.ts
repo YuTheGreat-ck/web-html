@@ -28,7 +28,7 @@ export const MENU_ITEMS_HEADLINE: MenuItemsHeadline[] = [
   },
   {
     title: "产品类型",
-    subtitle: "全系列工业吸油绵",
+    subtitle: "全系列环保工业吸油绵",
   },
   {
     title: "咨询报价",
@@ -83,7 +83,7 @@ export const MENU_ABOUT_US: MenuFooter[] = [
 // 页脚联系信息
 export const MENU_CONTACT_INFO: MenuFooter[] = [
   {
-    title: "中国某工业园区 科技大厦 8楼",
+    title: "中国 山东省东营市垦利区",
     href: "#",
   },
   {
