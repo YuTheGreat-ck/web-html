@@ -41,7 +41,7 @@ export default function Contact({}: ContactProps) {
         {/* 右侧展示区 */}
         <div className="relative">
           <Image
-            src="/images/absorbent-application.jpg" 
+            src="/images/image-4.jpg" 
             alt="工业吸油产品现场应用"
             priority
             width={500}

@@ -15,7 +15,7 @@ export default function VideoPlayer() {
         <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl relative group">
           {/* 视频封面图 */}
           <Image
-            src="/images/factory-demo.jpg" 
+            src="/images/image-3.jpg" 
             alt="工业吸油绵应用演示视频"
             width={1200}
             height={675}
