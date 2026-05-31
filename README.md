@@ -1,3 +1,2 @@
-工业吸油绵门户系统 (Industrial Absorbent Portal)
-项目简介
-本平台是专为工业吸油材料研发与销售打造的企业官网，提供高性能吸油绵系列产品展示、工业泄漏应急处理方案，以及全流程询价支持。
+致谢原项目作者：https://github.com/abdurrozaqf
+作者原项目：https://github.com/abdurrozaqf/real-estate-landing-page
