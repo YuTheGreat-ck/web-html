@@ -8,8 +8,8 @@ export default function About() {
       <p className="text-gray-700 leading-relaxed mb-6">
         山东胜德源环保科技有限公司位于中国山东省东营市垦利区，
         专注于工业吸油棉、围油栏、吸附材料及工业泄漏应急处理解决方案。
-        产品广泛应用于石油化工、港口码头、机械制造、电力能源、
-        汽车维修等行业。
+        产品广泛应用于石油化工、港口码头、机械制造、电力能源、航空航运、
+        汽车制造维修等行业。
       </p>
 
       <p className="text-gray-700 leading-relaxed mb-6">
